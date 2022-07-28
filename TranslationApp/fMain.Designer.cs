@@ -91,6 +91,7 @@ namespace TranslationApp
             this.lNbToDoSect = new System.Windows.Forms.Label();
             this.bRefresh = new System.Windows.Forms.Button();
             this.bCheckUpdate = new System.Windows.Forms.Button();
+            this.bUpdateApp = new System.Windows.Forms.Button();
             this.menuStripMain.SuspendLayout();
             this.tcType.SuspendLayout();
             this.tabType1.SuspendLayout();
@@ -703,11 +704,22 @@ namespace TranslationApp
             this.bCheckUpdate.UseVisualStyleBackColor = true;
             this.bCheckUpdate.Click += new System.EventHandler(this.bCheckUpdate_Click);
             // 
+            // bUpdateApp
+            // 
+            this.bUpdateApp.Location = new System.Drawing.Point(595, 76);
+            this.bUpdateApp.Name = "bUpdateApp";
+            this.bUpdateApp.Size = new System.Drawing.Size(144, 23);
+            this.bUpdateApp.TabIndex = 38;
+            this.bUpdateApp.Text = "Update";
+            this.bUpdateApp.UseVisualStyleBackColor = true;
+            this.bUpdateApp.Click += new System.EventHandler(this.bUpdateApp_Click);
+            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 737);
+            this.Controls.Add(this.bUpdateApp);
             this.Controls.Add(this.bCheckUpdate);
             this.Controls.Add(this.bRefresh);
             this.Controls.Add(this.panelNb2);
@@ -826,6 +838,7 @@ namespace TranslationApp
         private System.Windows.Forms.Label lNbToDoSect;
         private System.Windows.Forms.Button bRefresh;
         private System.Windows.Forms.Button bCheckUpdate;
+        private System.Windows.Forms.Button bUpdateApp;
     }
 }
 
