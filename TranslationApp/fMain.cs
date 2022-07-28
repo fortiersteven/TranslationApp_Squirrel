@@ -13,6 +13,7 @@ using System.Xml.Serialization;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Xml;
+using Squirrel;
 
 namespace TranslationApp
 {
@@ -32,6 +33,8 @@ namespace TranslationApp
         private List<Entry> listEntries = new List<Entry>();
         public List<TalesFile> listFileXML = new List<TalesFile>();
 
+        UpdateManager manager;
+
         public fMain()
         {
             InitializeComponent();
@@ -39,7 +42,7 @@ namespace TranslationApp
             
         }
 
-        private void fMain_Load(object sender, EventArgs e)
+        private async void fMain_Load(object sender, EventArgs e)
         {
 
 
@@ -70,6 +73,30 @@ namespace TranslationApp
             lNbProofSect.Text = "";
             lNbDoneSect.Text = "";
             changeEnabledProp(false);
+
+            manager = await UpdateManager
+                .GitHubUpdateManager(@"https://github.com/meJevin/WPFFrameworkTest");
+
+            var updateInfo = await manager.CheckForUpdate();
+
+            if (updateInfo.ReleasesToApply.Count > 0)
+            {
+                MessageBox.Show($"Current version is {manager.CurrentlyInstalledVersion().ToString()}.\nNew update has been found and will be installed now");
+
+                try
+                {
+                    await manager.UpdateApp();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                MessageBox.Show("Updated succesfuly!\nPlease restart the app to show the new version.");
+
+            }
+            
+            this.Text = this.Text + " " + manager.CurrentlyInstalledVersion().ToString();
         }
 
         private void changeEnabledProp(bool status)
@@ -693,6 +720,20 @@ namespace TranslationApp
 
                 //Swallow event 
                 e.Handled = true;
+            }
+        }
+
+        private async void bCheckUpdate_Click(object sender, EventArgs e)
+        {
+            var updateInfo = await manager.CheckForUpdate();
+
+            if (updateInfo.ReleasesToApply.Count > 0)
+            {
+                MessageBox.Show("New update can be apply");
+            }
+            else
+            {
+                MessageBox.Show("No new update found");
             }
         }
     }
