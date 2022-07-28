@@ -9,13 +9,10 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows;
 using System.Xml.Serialization;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Xml;
-using Squirrel;
-using System.Threading.Tasks;
 
 namespace TranslationApp
 {
@@ -34,7 +31,7 @@ namespace TranslationApp
         private Dictionary<string, Color> dictColor = new Dictionary<string, Color>();
         private List<Entry> listEntries = new List<Entry>();
         public List<TalesFile> listFileXML = new List<TalesFile>();
-        UpdateManager manager;
+
         public fMain()
         {
             InitializeComponent();
@@ -42,7 +39,7 @@ namespace TranslationApp
             
         }
 
-        private async void fMain_Load(object sender, EventArgs e)
+        private void fMain_Load(object sender, EventArgs e)
         {
 
 
@@ -73,20 +70,6 @@ namespace TranslationApp
             lNbProofSect.Text = "";
             lNbDoneSect.Text = "";
             changeEnabledProp(false);
-
-          
-            try
-            {
-                manager = await UpdateManager
-                    .GitHubUpdateManager(@"https://github.com/fortiersteven/TranslationApp_Squirrel");
-                
-            }
-            catch
-            {
-
-            }
-            this.Text += " " + manager.CurrentlyInstalledVersion().ToString();
-
         }
 
         private void changeEnabledProp(bool status)
@@ -710,47 +693,6 @@ namespace TranslationApp
 
                 //Swallow event 
                 e.Handled = true;
-            }
-        }
-
-
-
-        private async void MainWindow_Load()
-        {
-            manager = await UpdateManager
-                .GitHubUpdateManager(@"https://github.com/fortiersteven/TranslationApp_Squirrel");
-
-            this.Text += " " + manager.CurrentlyInstalledVersion().ToString();
-        }
-
-        private async void CheckForUpdatesButton_Click()
-        {
-            var updateInfo = await manager.CheckForUpdate();
-
-            if (updateInfo.ReleasesToApply.Count > 0)
-            {
-                await manager.UpdateApp();
-                MessageBox.Show("Updated succesfuly!");
-            }
-            else
-            {
-                MessageBox.Show("No new updates to apply");
-            }
-            
-        }
-
-        private async void bCheckUpdate_Click(object sender, EventArgs e)
-        {
-            var updateInfo = await manager.CheckForUpdate();
-
-            if (updateInfo.ReleasesToApply.Count > 0)
-            {
-                await manager.UpdateApp();
-                MessageBox.Show("Updated succesfuly!");
-            }
-            else
-            {
-                MessageBox.Show("No new updates to apply");
             }
         }
     }

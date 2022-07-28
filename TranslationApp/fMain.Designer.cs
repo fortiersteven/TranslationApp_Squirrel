@@ -90,7 +90,6 @@ namespace TranslationApp
             this.lNbProofSect = new System.Windows.Forms.Label();
             this.lNbToDoSect = new System.Windows.Forms.Label();
             this.bRefresh = new System.Windows.Forms.Button();
-            this.bCheckUpdate = new System.Windows.Forms.Button();
             this.menuStripMain.SuspendLayout();
             this.tcType.SuspendLayout();
             this.tabType1.SuspendLayout();
@@ -693,22 +692,11 @@ namespace TranslationApp
             this.bRefresh.UseVisualStyleBackColor = true;
             this.bRefresh.Click += new System.EventHandler(this.bRefresh_Click);
             // 
-            // bCheckUpdate
-            // 
-            this.bCheckUpdate.Location = new System.Drawing.Point(579, 47);
-            this.bCheckUpdate.Name = "bCheckUpdate";
-            this.bCheckUpdate.Size = new System.Drawing.Size(144, 23);
-            this.bCheckUpdate.TabIndex = 37;
-            this.bCheckUpdate.Text = "Check Update";
-            this.bCheckUpdate.UseVisualStyleBackColor = true;
-            this.bCheckUpdate.Click += new System.EventHandler(this.bCheckUpdate_Click);
-            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 737);
-            this.Controls.Add(this.bCheckUpdate);
             this.Controls.Add(this.bRefresh);
             this.Controls.Add(this.panelNb2);
             this.Controls.Add(this.panelNb1);
@@ -825,7 +813,6 @@ namespace TranslationApp
         private System.Windows.Forms.Label lNbProofSect;
         private System.Windows.Forms.Label lNbToDoSect;
         private System.Windows.Forms.Button bRefresh;
-        private System.Windows.Forms.Button bCheckUpdate;
     }
 }
 
