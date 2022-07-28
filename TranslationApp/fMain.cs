@@ -75,7 +75,7 @@ namespace TranslationApp
             changeEnabledProp(false);
 
             manager = await UpdateManager
-                .GitHubUpdateManager(@"https://github.com/meJevin/WPFFrameworkTest");
+                .GitHubUpdateManager(@"https://github.com/fortiersteven/TranslationApp_Squirrel");
 
             var updateInfo = await manager.CheckForUpdate();
 
