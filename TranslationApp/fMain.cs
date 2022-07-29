@@ -42,7 +42,7 @@ namespace TranslationApp
             
         }
 
-        private async void fMain_Load(object sender, EventArgs e)
+        private void fMain_Load(object sender, EventArgs e)
         {
 
 
@@ -74,13 +74,12 @@ namespace TranslationApp
             lNbDoneSect.Text = "";
             changeEnabledProp(false);
 
-            manager = await UpdateManager
-                .GitHubUpdateManager(@"https://github.com/fortiersteven/TranslationApp_Squirrel");
-            MessageBox.Show($"Current version is {manager.CurrentlyInstalledVersion().ToString()}");
-            this.Text = this.Text + " " + manager.CurrentlyInstalledVersion().ToString();
-
-
             
+            this.Text = this.Text + " " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+
+
+
+
         }
 
         private void changeEnabledProp(bool status)
@@ -731,6 +730,24 @@ namespace TranslationApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private async void updateAppToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            manager = await UpdateManager
+                .GitHubUpdateManager(@"https://github.com/fortiersteven/TranslationApp_Squirrel");
+
+            var updateInfo = await manager.CheckForUpdate();
+            if (updateInfo.ReleasesToApply.Count > 0)
+            {
+                MessageBox.Show("New update can be apply");
+                await manager.UpdateApp();
+                MessageBox.Show("Updated succesfuly!\nPlease restart the app to show the new version.");
+            }
+            else
+            {
+                MessageBox.Show("No new update found");
             }
         }
     }

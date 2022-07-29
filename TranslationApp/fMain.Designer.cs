@@ -90,8 +90,7 @@ namespace TranslationApp
             this.lNbProofSect = new System.Windows.Forms.Label();
             this.lNbToDoSect = new System.Windows.Forms.Label();
             this.bRefresh = new System.Windows.Forms.Button();
-            this.bCheckUpdate = new System.Windows.Forms.Button();
-            this.bUpdateApp = new System.Windows.Forms.Button();
+            this.updateAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.menuStripMain.SuspendLayout();
             this.tcType.SuspendLayout();
@@ -107,7 +106,8 @@ namespace TranslationApp
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.translationToolStripMenuItem,
             this.packToolStripMenuItem,
-            this.toolsToolStripMenuItem});
+            this.toolsToolStripMenuItem,
+            this.updateAppToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(751, 24);
@@ -687,7 +687,7 @@ namespace TranslationApp
             // 
             // bRefresh
             // 
-            this.bRefresh.Location = new System.Drawing.Point(221, 26);
+            this.bRefresh.Location = new System.Drawing.Point(221, 27);
             this.bRefresh.Name = "bRefresh";
             this.bRefresh.Size = new System.Drawing.Size(71, 23);
             this.bRefresh.TabIndex = 36;
@@ -695,33 +695,20 @@ namespace TranslationApp
             this.bRefresh.UseVisualStyleBackColor = true;
             this.bRefresh.Click += new System.EventHandler(this.bRefresh_Click);
             // 
-            // bCheckUpdate
+            // updateAppToolStripMenuItem
             // 
-            this.bCheckUpdate.Location = new System.Drawing.Point(595, 47);
-            this.bCheckUpdate.Name = "bCheckUpdate";
-            this.bCheckUpdate.Size = new System.Drawing.Size(144, 23);
-            this.bCheckUpdate.TabIndex = 37;
-            this.bCheckUpdate.Text = "Validate Update";
-            this.bCheckUpdate.UseVisualStyleBackColor = true;
-            this.bCheckUpdate.Click += new System.EventHandler(this.bCheckUpdate_Click);
-            // 
-            // bUpdateApp
-            // 
-            this.bUpdateApp.Location = new System.Drawing.Point(595, 76);
-            this.bUpdateApp.Name = "bUpdateApp";
-            this.bUpdateApp.Size = new System.Drawing.Size(144, 23);
-            this.bUpdateApp.TabIndex = 38;
-            this.bUpdateApp.Text = "Update";
-            this.bUpdateApp.UseVisualStyleBackColor = true;
-            this.bUpdateApp.Click += new System.EventHandler(this.bUpdateApp_Click);
+            this.updateAppToolStripMenuItem.Name = "updateAppToolStripMenuItem";
+            this.updateAppToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.updateAppToolStripMenuItem.Text = "Update App";
+            this.updateAppToolStripMenuItem.Click += new System.EventHandler(this.updateAppToolStripMenuItem_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(595, 119);
+            this.button1.Location = new System.Drawing.Point(595, 47);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(144, 23);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "New cool button";
+            this.button1.TabIndex = 37;
+            this.button1.Text = "Potato button";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // fMain
@@ -730,8 +717,6 @@ namespace TranslationApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 737);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.bUpdateApp);
-            this.Controls.Add(this.bCheckUpdate);
             this.Controls.Add(this.bRefresh);
             this.Controls.Add(this.panelNb2);
             this.Controls.Add(this.panelNb1);
@@ -848,8 +833,7 @@ namespace TranslationApp
         private System.Windows.Forms.Label lNbProofSect;
         private System.Windows.Forms.Label lNbToDoSect;
         private System.Windows.Forms.Button bRefresh;
-        private System.Windows.Forms.Button bCheckUpdate;
-        private System.Windows.Forms.Button bUpdateApp;
+        private System.Windows.Forms.ToolStripMenuItem updateAppToolStripMenuItem;
         private System.Windows.Forms.Button button1;
     }
 }
