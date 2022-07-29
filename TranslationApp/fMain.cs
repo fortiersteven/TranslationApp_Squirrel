@@ -735,11 +735,13 @@ namespace TranslationApp
 
         private async void updateAppToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            manager = await UpdateManager
-                .GitHubUpdateManager(@"https://github.com/fortiersteven/TranslationApp_Squirrel");
+            
             try
             {
-                    var updateInfo = await manager.CheckForUpdate();
+                manager = await UpdateManager
+                .GitHubUpdateManager(@"https://github.com/fortiersteven/TranslationApp_Squirrel");
+
+                var updateInfo = await manager.CheckForUpdate();
                 if (updateInfo.ReleasesToApply.Count > 0)
                 {
                     MessageBox.Show("New update can be apply");
