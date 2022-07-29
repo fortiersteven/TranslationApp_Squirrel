@@ -38,7 +38,7 @@ namespace TranslationApp
         public fMain()
         {
             InitializeComponent();
-
+           
             
         }
 
@@ -75,10 +75,29 @@ namespace TranslationApp
             changeEnabledProp(false);
 
             
-            this.Text = this.Text + " " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            string[] versionStrings = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString().Split('.');
+            string version = versionStrings[0] + '.' + versionStrings[1] + '.' + versionStrings[2];
 
 
+            this.Text = this.Text + " " + version;
+           
+            var release = GithubAPI.loadLatestRelease();
 
+            //Check if a newer release is available
+            int x = Convert.ToInt32(release.Tag_Name.Replace(".", ""));
+            int y = Convert.ToInt32(version.Replace(".", ""));
+            if ( Convert.ToInt32(release.Tag_Name.Replace(".","")) > Convert.ToInt32(version.Replace(".","")))
+            {
+                MessageBox.Show($"Your current version is {version}.\nA new release is {release.Name}");
+                updateAppToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                updateAppToolStripMenuItem.Enabled = false;
+            }
+            
+            
+            
 
         }
 
@@ -747,6 +766,7 @@ namespace TranslationApp
                     MessageBox.Show("New update can be apply");
                     await manager.UpdateApp();
                     MessageBox.Show("Updated succesfuly!\nPlease restart the app to show the new version.");
+                    updateAppToolStripMenuItem.Enabled = false;
                 }
                 else
                 {
@@ -757,6 +777,11 @@ namespace TranslationApp
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            var release = GithubAPI.loadLatestRelease();
         }
     }
 }
