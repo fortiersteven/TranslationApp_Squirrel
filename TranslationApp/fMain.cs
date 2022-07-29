@@ -84,11 +84,9 @@ namespace TranslationApp
             var release = GithubAPI.loadLatestRelease();
 
             //Check if a newer release is available
-            int x = Convert.ToInt32(release.Tag_Name.Replace(".", ""));
-            int y = Convert.ToInt32(version.Replace(".", ""));
             if ( Convert.ToInt32(release.Tag_Name.Replace(".","")) > Convert.ToInt32(version.Replace(".","")))
             {
-                MessageBox.Show($"Your current version is {version}.\nA new release is {release.Name}");
+                MessageBox.Show($"Your current version is {version}.\nA new release is available, please update the App.");
                 updateAppToolStripMenuItem.Enabled = true;
             }
             else
