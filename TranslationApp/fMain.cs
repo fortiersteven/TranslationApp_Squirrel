@@ -758,18 +758,10 @@ namespace TranslationApp
                 manager = await UpdateManager
                 .GitHubUpdateManager(@"https://github.com/fortiersteven/TranslationApp_Squirrel");
 
-                var updateInfo = await manager.CheckForUpdate();
-                if (updateInfo.ReleasesToApply.Count > 0)
-                {
-                    MessageBox.Show("New update can be apply");
-                    await manager.UpdateApp();
-                    MessageBox.Show("Updated succesfuly!\nPlease restart the app to show the new version.");
-                    updateAppToolStripMenuItem.Enabled = false;
-                }
-                else
-                {
-                    MessageBox.Show("No new update found");
-                }
+                await manager.UpdateApp();
+                MessageBox.Show("The app has been updated succesfuly!\nYou'll have the new version next time you restart the App.");
+                updateAppToolStripMenuItem.Enabled = false;
+   
             }
             catch (Exception ex)
             {
