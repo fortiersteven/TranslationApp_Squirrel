@@ -44,6 +44,7 @@ namespace TranslationApp
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hexToJapaneseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchJapaneseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbJapaneseText = new System.Windows.Forms.TextBox();
             this.tbEnglishText = new System.Windows.Forms.TextBox();
             this.tbNoteText = new System.Windows.Forms.TextBox();
@@ -90,9 +91,9 @@ namespace TranslationApp
             this.lNbProofSect = new System.Windows.Forms.Label();
             this.lNbToDoSect = new System.Windows.Forms.Label();
             this.bRefresh = new System.Windows.Forms.Button();
-            this.updateAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStripMain.SuspendLayout();
             this.tcType.SuspendLayout();
             this.tabType1.SuspendLayout();
@@ -219,6 +220,13 @@ namespace TranslationApp
             this.searchJapaneseToolStripMenuItem.Name = "searchJapaneseToolStripMenuItem";
             this.searchJapaneseToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.searchJapaneseToolStripMenuItem.Text = "Search files for Japanese";
+            // 
+            // updateAppToolStripMenuItem
+            // 
+            this.updateAppToolStripMenuItem.Name = "updateAppToolStripMenuItem";
+            this.updateAppToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.updateAppToolStripMenuItem.Text = "Update App";
+            this.updateAppToolStripMenuItem.Click += new System.EventHandler(this.updateAppToolStripMenuItem_Click);
             // 
             // tbJapaneseText
             // 
@@ -696,13 +704,6 @@ namespace TranslationApp
             this.bRefresh.UseVisualStyleBackColor = true;
             this.bRefresh.Click += new System.EventHandler(this.bRefresh_Click);
             // 
-            // updateAppToolStripMenuItem
-            // 
-            this.updateAppToolStripMenuItem.Name = "updateAppToolStripMenuItem";
-            this.updateAppToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
-            this.updateAppToolStripMenuItem.Text = "Update App";
-            this.updateAppToolStripMenuItem.Click += new System.EventHandler(this.updateAppToolStripMenuItem_Click);
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(595, 47);
@@ -721,11 +722,21 @@ namespace TranslationApp
             this.button2.Text = "Best button";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(595, 112);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(144, 23);
+            this.button3.TabIndex = 39;
+            this.button3.Text = "Bad button";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 737);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bRefresh);
@@ -847,6 +858,7 @@ namespace TranslationApp
         private System.Windows.Forms.ToolStripMenuItem updateAppToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 
